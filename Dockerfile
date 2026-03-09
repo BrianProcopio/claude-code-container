@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
   python3 \
   python3-pip \
   python3-venv \
+  xvfb x11vnc novnc python3-websockify fluxbox xauth dbus-x11 \
   && rm -rf /var/lib/apt/lists/*
 
 # Install Claude Code CLI using native installer
@@ -30,13 +31,23 @@ RUN claude mcp add -s user --transport http extjs-mcp http://extjs-mcp:3000/mcp
 # Install language servers
 RUN npm install -g intelephense
 
+# Install Playwright CLI globally and Chromium with system deps
+RUN npm install -g playwright
+RUN npx playwright install --with-deps chromium
+
 # Install plugins from official marketplace
 RUN claude plugin marketplace add anthropics/claude-plugins-official
 RUN claude plugin install php-lsp@claude-plugins-official -s user
 
 # Install agent skills
 
+# Virtual display for Playwright headed mode
+ENV DISPLAY=:99
+
 # Set working directory
 WORKDIR /workspace
 
-CMD ["/bin/bash"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]

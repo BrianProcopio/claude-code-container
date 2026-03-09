@@ -4,11 +4,16 @@ services:
     container_name: claude-code-container
     stdin_open: true
     tty: true
+    ports:
+      - "127.0.0.1:6080:6080"
+    shm_size: "256m"
     volumes:
       - ~/Sites:/workspace/Sites
       - ~/MCP:/workspace/MCP
       - ~/intelephense/licence.txt:/root/intelephense/licence.txt:ro
     working_dir: /workspace
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       - TERM=xterm-256color
     networks:
