@@ -4,6 +4,7 @@ FROM debian:bookworm-slim
 # Install necessary tools including Python and Node.js (runtime dependency)
 RUN apt-get update && apt-get install -y \
   git \
+  php-cli \
   curl \
   ca-certificates \
   nano \
@@ -24,6 +25,18 @@ ENV PATH="/root/.local/bin:${PATH}"
 # Copy Claude Code configuration (settings, skills)
 COPY config/settings.json /root/.claude/settings.json
 COPY config/skills/ /root/.claude/skills/
+
+# Add MCP Servers
+RUN claude mcp add -s user --transport http extjs-mcp http://extjs-mcp:3000/mcp
+
+# Install language servers
+RUN npm install -g intelephense
+
+# Install plugins from official marketplace
+RUN claude plugin marketplace add anthropics/claude-plugins-official
+RUN claude plugin install php-lsp@claude-plugins-official -s user
+
+# Install agent skills
 
 # Set working directory
 WORKDIR /workspace
