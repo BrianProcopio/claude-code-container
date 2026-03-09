@@ -1,7 +1,7 @@
-# Use Debian slim as base image
-FROM debian:bookworm-slim
+# Use Node LTS on Debian slim as base image
+FROM node:lts-bookworm-slim
 
-# Install necessary tools including Python and Node.js (runtime dependency)
+# Install necessary tools and Python
 RUN apt-get update && apt-get install -y \
   git \
   php-cli \
@@ -9,8 +9,6 @@ RUN apt-get update && apt-get install -y \
   ca-certificates \
   nano \
   vim-tiny \
-  nodejs \
-  npm \
   python3 \
   python3-pip \
   python3-venv \
