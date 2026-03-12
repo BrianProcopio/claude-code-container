@@ -35,6 +35,7 @@ RUN claude plugin marketplace add anthropics/claude-plugins-official
 RUN claude plugin install php-lsp@claude-plugins-official -s user
 
 # Install agent skills
+RUN npx -y skills add anthropics/skills --skill mcp-builder --skill frontend-design --skill skill-creator --skill doc-coauthoring -a claude-code -g -y
 
 # Set working directory
 WORKDIR /workspace
