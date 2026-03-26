@@ -61,9 +61,9 @@ The container comes with the following tools pre-installed:
 
 ## Volume Mounts
 
-| Host Path   | Container Path     |
-|-------------|--------------------|
-| `~/Sites`   | `/workspace/Sites` |
-| `~/MCP`     | `/workspace/MCP`   |
+| Host Path | Container Path     |
+| --------- | ------------------ |
+| `~/Sites` | `/workspace/Sites` |
+| `~/MCP`   | `/workspace/MCP`   |
 
 All changes to mounted directories are reflected on your host system.

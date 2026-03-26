@@ -1,16 +1,16 @@
 {
   "permissions": {
     "deny": [
-      "Read .env*",
-      "Edit .env*",
-      "Write .env*",
+      "Read(.env*)",
+      "Edit(.env*)",
+      "Write(.env*)",
       "Bash(cat .env*)",
       "Bash(head .env*)",
       "Bash(tail .env*)",
       "Bash(*> .env*)",
-      "Read parameters.yml",
-      "Edit parameters.yml",
-      "Write parameters.yml",
+      "Read(parameters.yml)",
+      "Edit(parameters.yml)",
+      "Write(parameters.yml)",
       "Bash(cat parameters.yml)",
       "Bash(head parameters.yml)",
       "Bash(tail parameters.yml)",

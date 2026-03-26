@@ -7,6 +7,13 @@ services:
     volumes:
       - ~/Sites:/workspace/Sites
       - ~/MCP:/workspace/MCP
+      - ~/intelephense/licence.txt:/root/intelephense/licence.txt:ro
     working_dir: /workspace
     environment:
       - TERM=xterm-256color
+    networks:
+      - shared-mcp
+
+networks:
+  shared-mcp:
+    external: true
