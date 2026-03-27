@@ -23,6 +23,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 # Copy Claude Code configuration (settings, skills)
 COPY config/settings.json /root/.claude/settings.json
 COPY config/skills/ /root/.claude/skills/
+COPY config/CLAUDE.md /root/.claude/CLAUDE.md
 
 # Add MCP Servers
 RUN claude mcp add -s user --transport http extjs-mcp http://extjs-mcp:3000/mcp
