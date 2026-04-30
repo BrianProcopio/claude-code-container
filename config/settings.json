@@ -16,5 +16,9 @@
       "Bash(tail parameters.yml)",
       "Bash(*> parameters.yml)"
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /root/.claude/statusline-command.sh"
   }
 }

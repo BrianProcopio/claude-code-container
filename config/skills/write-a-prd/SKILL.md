@@ -17,7 +17,7 @@ A deep module (as opposed to a shallow module) is one which encapsulates a lot o
 
 Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
 
-5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. Save the PRD as a Markdown file (e.g. `prd-<feature-name>.md`) in the current working directory.
+5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. Save the PRD as a Markdown file named `prd-<feature-name>.md` in a `.claude/prds/` directory at the root of the current project (the directory containing the project's `.claude` folder, or the current working directory if no project-level `.claude` exists yet). Create the `.claude/prds/` directory if it does not exist.
 
 <prd-template>
 

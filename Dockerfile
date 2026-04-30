@@ -20,10 +20,13 @@ RUN curl -fsSL https://claude.ai/install.sh | bash
 # Add Claude to PATH
 ENV PATH="/root/.local/bin:${PATH}"
 
-# Copy Claude Code configuration (settings, skills)
+# Copy Claude Code configuration (settings, skills, status line)
 COPY config/settings.json /root/.claude/settings.json
 COPY config/skills/ /root/.claude/skills/
 COPY config/CLAUDE.md /root/.claude/CLAUDE.md
+COPY config/statusline-command.sh /root/.claude/statusline-command.sh
+COPY config/statusline.py /root/.claude/statusline.py
+RUN chmod +x /root/.claude/statusline-command.sh /root/.claude/statusline.py
 
 # Add MCP Servers
 RUN claude mcp add -s user --transport http extjs-mcp http://extjs-mcp:3000/mcp
