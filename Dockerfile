@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
   ca-certificates \
   nano \
   vim-tiny \
+  jq \
   python3 \
   python3-pip \
   python3-venv \
@@ -25,8 +26,7 @@ COPY config/settings.json /root/.claude/settings.json
 COPY config/skills/ /root/.claude/skills/
 COPY config/CLAUDE.md /root/.claude/CLAUDE.md
 COPY config/statusline-command.sh /root/.claude/statusline-command.sh
-COPY config/statusline.py /root/.claude/statusline.py
-RUN chmod +x /root/.claude/statusline-command.sh /root/.claude/statusline.py
+RUN chmod +x /root/.claude/statusline-command.sh
 
 # Add MCP Servers
 RUN claude mcp add -s user --transport http extjs-mcp http://extjs-mcp:3000/mcp
