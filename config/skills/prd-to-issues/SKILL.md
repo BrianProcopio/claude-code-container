@@ -51,7 +51,7 @@ Iterate until the user approves the breakdown.
 
 ### 5. Create the issue files
 
-Create `./issues/<prd-name>/` if it doesn't exist, where `<prd-name>` is derived from the PRD filename (e.g. PRD file `prd-user-onboarding.md` → `./issues/user-onboarding/`). For each approved slice, write a Markdown file named with a numeric prefix and slug (e.g. `./issues/user-onboarding/01-setup-auth.md`, `./issues/user-onboarding/02-user-profile.md`). Create files in dependency order (blockers first) so you can reference other issue filenames in the "Blocked by" field.
+Create `.claude/issues/<prd-name>/` if it doesn't exist at the root of the current project (the directory containing the project's `.claude` folder, or the current working directory if no project-level `.claude` exists yet), where `<prd-name>` is derived from the PRD filename (e.g. PRD file `prd-user-onboarding.md` → `.claude/issues/user-onboarding/`). Create the `.claude/issues/` directory if it does not exist. For each approved slice, write a Markdown file named with a numeric prefix and slug (e.g. `.claude/issues/user-onboarding/01-setup-auth.md`, `.claude/issues/user-onboarding/02-user-profile.md`). Create files in dependency order (blockers first) so you can reference other issue filenames in the "Blocked by" field.
 
 Use the template below for each issue file.
 
