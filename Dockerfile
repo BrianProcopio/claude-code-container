@@ -41,6 +41,12 @@ RUN claude plugin install php-lsp@claude-plugins-official -s user
 # Install agent skills
 RUN npx -y skills add anthropics/skills --skill mcp-builder --skill frontend-design --skill skill-creator --skill doc-coauthoring -a claude-code -g -y
 
+# Mirror the host's home path inside the container so bare-repo worktree .git pointers
+# (e.g. "gitdir: /Users/<you>/Sites/...") resolve correctly. HOST_HOME is passed in from
+# docker-compose at build time as ${HOME} on the host.
+ARG HOST_HOME
+RUN mkdir -p "${HOST_HOME}" && ln -s /workspace/Sites "${HOST_HOME}/Sites"
+
 # Set working directory
 WORKDIR /workspace
 

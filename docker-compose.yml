@@ -1,6 +1,9 @@
 services:
   claude-code:
-    build: .
+    build:
+      context: .
+      args:
+        HOST_HOME: ${HOME}
     container_name: claude-code-container
     stdin_open: true
     tty: true
