@@ -29,7 +29,7 @@ COPY config/statusline-command.sh /root/.claude/statusline-command.sh
 RUN chmod +x /root/.claude/statusline-command.sh
 
 # Add MCP Servers
-RUN claude mcp add -s user --transport http extjs-mcp http://extjs-mcp:3000/mcp
+# RUN claude mcp add -s user --transport http extjs-mcp http://extjs-mcp:3000/mcp
 
 # Install language servers
 RUN npm install -g intelephense
